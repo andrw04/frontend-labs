@@ -1,0 +1,74 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block title %}Главная{% endblock title %} 
+{% block main %}
+<section class="latest-news">
+    <h2>Последние новости</h2>
+    <div class="news-item"></div>
+    <a href="/news/{{news.id}}">
+        <h3>{{ news.title }}</h3>
+        <p>{{ news.summary }}</p>
+    </a>
+</section>
+<hr />
+{% if request.user.is_authenticated %}
+<section>
+  <h1>Timezone</h1>
+  <small>{{ name }}</small>
+  <br>
+  <small>Текущее время: {{ current_time }}</small>
+</section>
+<hr />
+<section>
+  <h1>Quote of day:</h1>
+  <blockquote>
+    <p><q>{{ quote }}</q></p>
+    <cite>- {{ author }}</cite>
+  </blockquote>
+</section>
+<hr />
+<br />
+<section>
+  <h1>Статистика количества заказов</h1>
+  <canvas id="myChart">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      x = [{% for label in labels %} '{{ label }}', {% endfor %}]
+      y = [{% for dat in data %} '{{ dat }}', {% endfor %}]
+        const ctx = document.getElementById('myChart');
+    
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: x,
+            datasets: [{
+              label: 'Количество заказов',
+              data: y,
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+    </script>
+  </canvas>
+</section>
+{% endif %}
+<hr />
+<section>
+  <h1>Партнеры</h1>
+  <ul class="partner-list">
+      <li><a href="https://minzdrav.gov.by/ru/"><img src="{% static 'app/images/minzdrav.png' %}" alt="Министерство Здравоохранения Республики Беларусь"/></a></li>
+      <li><a href="https://www.bayer.ru/ru/"><img src="{% static 'app/images/bayer.png' %}" alt="Bayer" /></a>
+      </li>
+      <li><a href=""><img src="{% static 'app/images/philips.png' %}" alt="Philips" /></a></li>
+  </ul>
+</section>
+{% endblock main %}

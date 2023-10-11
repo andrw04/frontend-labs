@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Список категорий услуг{% endblock title %}
+
+{% block header %}Список категорий{% endblock header %}
+
+{% block main %}
+<hr>
+{% if object_list %}
+<div class="card-grid">
+{% for object in object_list %}
+  <div class="card">
+    <a href="/service/{{object.id}}">
+      <img class="card-image" src="{{ object.image.url}}" alt="Card image cap">
+      <h5 class="card-title">{{ object.name }}</h5>
+    </a>
+  </div>
+{% endfor %}
+</div>
+{% else %}
+<small>Список услуг пуст</small>
+{% endif %}
+
+{% endblock main %}

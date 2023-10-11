@@ -1,0 +1,15 @@
+{% extends "app/base.html" %}
+
+{% block title %}Добавить расписание{% endblock title %}
+
+{% block header %}Добавить расписание{% endblock header %}
+
+{% block main %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="text-center">
+    <input class="button" type="submit" value="Добавить">
+    </div>
+</form>
+{% endblock main %}

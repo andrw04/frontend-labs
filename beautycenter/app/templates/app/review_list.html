@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Отзывы{% endblock title %}
+
+{% block header %}Отзывы{% endblock header %}
+
+{% block main %}
+    {% if object_list.count > 0 %}
+    <div class="reviews">
+        <ul>
+        {% for review in object_list %}
+        <li class="review">
+            <h5 class="mb-1">{{ review.author }}</h5>
+            <small>{{ review.date }}</small>
+            <p class="mb-1">{{ review.text }}</p>
+            <small>Оценка: {{ review.rate }}</small>
+        </li>
+        {% endfor %}
+        </ul>
+    </div>
+    {% else %}
+    <div class="text-center">
+        <small>Ещё нет отзывов.</small>
+    </div>
+    {% endif %}
+    <div class="text-center">
+    {% if request.user.is_authenticated %}
+        <a href='/review/create/' class="button">Добавить отзыв</a>
+    {% else %}
+        <a]i href='{% url 'login' %}' class="button">Добавить отзыв</a>
+    {% endif %}
+    </div>
+{% endblock main %}

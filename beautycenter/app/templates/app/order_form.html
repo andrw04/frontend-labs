@@ -1,0 +1,14 @@
+{% extends "app/base.html" %}
+
+{% block title %}Данные клиента{% endblock title %}
+
+{% block header %}Данные клиента{% endblock header %}
+
+
+{% block main %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="button">
+</form>
+{% endblock main %}

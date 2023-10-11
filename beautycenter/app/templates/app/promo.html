@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Промокоды и купоны{% endblock title %}
+
+{% block header %}Промокоды и купоны{% endblock header %}
+
+{% block main %}
+    <a href="{% static 'app/cupon.html' %}" download>Скачать купон</a>
+    <br>
+    <iframe src="{% static 'app/cupon.html' %}" frameborder="0" widgth="600" height="600"></iframe>
+
+{% endblock main %}

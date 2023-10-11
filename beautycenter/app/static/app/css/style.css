@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+
+/* общий стиль для страниц */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    color: #0077b6;
+}
+
+p {
+    line-height: 1.5;
+}
+
+a {
+    color: #009688;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Стиль заголовка таблицы */
+  th {
+    background-color: #0074d9; /* Цвет фона заголовка */
+    color: #fff; /* Цвет текста заголовка */
+    font-weight: bold;
+    padding: 10px;
+  }
+  
+  /* Стиль ячеек таблицы */
+  td {
+    border: 1px solid #ccc; /* Граничные линии для ячеек */
+    padding: 8px;
+  }
+  
+  /* Чередование цвета строк */
+  tr:nth-child(even) {
+    background-color: #f2f2f2; /* Цвет фона четных строк */
+  }
+
+/* Стили для инпутов с классом .form-control */
+.form-control {
+    display: block;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .form-control:focus {
+    border-color: #0074d9; /* Цвет рамки при активации фокуса */
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 116, 217, 0.25); /* Эффект при активации фокуса */
+  }
+
+  select {
+    padding: 10px; /* Поля вокруг элемента select */
+    font-size: 16px; /* Размер шрифта */
+    border: 1px solid #ccc; /* Граница вокруг элемента select */
+    border-radius: 5px; /* Скругление углов */
+    background-color: #fff; /* Цвет фона */
+    color: #333; /* Цвет текста */
+    cursor: pointer; /* Изменение курсора при наведении */
+  }
+  
+  /* Стили для элемента select при фокусе (нажатии) */
+  select:focus {
+    outline: none; /* Убираем фокусовую рамку */
+    border-color: #0074d9; /* Цвет границы при фокусе */
+    box-shadow: 0 0 5px rgba(0, 116, 217, 0.5); /* Тень при фокусе */
+  }
+
+ 
+/* Стили для кнопок с классом .button */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0074d9; /* Цвет фона кнопки */
+    color: #fff; /* Цвет текста кнопки */
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+  
+  .button:hover {
+    background-color: #0056b3; /* Цвет фона при наведении */
+  }
+  
+  .button:focus {
+    outline: none; /* Убираем фокусовую рамку при нажатии */
+  }
+  
+  .button:active {
+    transform: scale(0.95); /* Эффект при нажатии */
+  }
+
+/* списки */
+.styled-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* Стиль для каждого элемента списка */
+  .styled-list li {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 10px;
+  }
+  
+  /* Стиль маркера */
+  .styled-list li:before {
+    content: "\2022"; /* Замените на желаемый символ для ненумерованных списков */
+    color: #0074d9; /* Цвет маркера */
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  /* Стиль нумерованного маркера */
+  .styled-list ol li:before {
+    color: #0074d9; /* Цвет маркера */
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  /* Стиль маркера при наведении на элемент списка */
+  .styled-list li:hover:before {
+    color: #ff5733; /* Цвет маркера при наведении */
+  }
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+}
+
+aside {
+    float: right; /* Задаем плавающее позиционирование справа */
+    width: 30%;    /* Задаем ширину элемента aside */
+}
+
+.styled-aside {
+    float: right;
+    color: #fff;
+    padding: 20px;
+    width: 300px;
+}
+
+.styled-aside h2 {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.styled-aside p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.styled-aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+.styled-aside li {
+    margin: 0;
+    padding: 5px 0;
+    font-size: 18px;
+    border-bottom: 1px solid #555;
+}
+
+footer{
+    justify-content: center;
+    text-align: center;
+}
+
+/* шапка */
+
+/* Стилизация для контейнера шапки */
+.header {
+    background-color: #0077b6; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+    padding: 20px; /* Внутренний отступ */
+    text-align: center;
+}
+
+/* Стилизация для заголовка */
+.header h1 {
+    font-size: 24px; /* Размер шрифта заголовка */
+    margin: 0; /* Убираем внешние отступы заголовка */
+}
+
+/* Стилизация для навигационного меню в шапке */
+.header ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden; /* Убираем горизонтальную прокрутку */
+}
+
+/* Стилизация для элементов навигационного меню */
+.header li {
+    display: inline;
+    margin-right: 20px;
+}
+
+/* Стилизация для ссылок в навигационном меню */
+.header a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Стилизация для ссылок при наведении */
+.header a:hover {
+    color: #6d5b4e; /* Новый цвет текста при наведении (например, оранжевый) */
+}
+
+
+/* сертификат */
+.certificate {
+    border: 2px solid #333;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f8f8f8;
+}
+.certificate-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.certificate-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+.certificate-text {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.certificate-date {
+    font-size: 14px;
+}
+
+
+/* Список партнеров */
+.partner-list {
+    display: flex;
+    justify-content: center; /* Равное расстояние между изображениями */
+    align-items: center; /* Выравнивание по центру по вертикали */
+    list-style: none;
+}
+  
+.partner-list img {
+    margin: 100px;
+    width: 200px; /* Фиксированный размер изображений */
+    height: 200px;
+}
+
+/* баннер */
+.banner {
+    background-image: url('../images/banner.png');
+    background-size: cover; /* Растягиваем изображение на весь баннер */
+    color: #0077b6;; /* Цвет текста */
+    text-align: center; /* Выравнивание текста по центру */
+    padding: 50px; /* Внутренний отступ для контента */
+    font-size: 48px; /* Размер текста */
+    font-family: 'Montserrat', sans-serif;
+  }
+
+
+  /* карточки */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Создает гибкую сетку с минимальной шириной 300px */
+    gap: 20px; /* Расстояние между карточками */
+}
+
+.card {
+    width: 300px; /* Фиксированная ширина карточки */
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.card-image {
+    width: 100%; /* Фиксированная ширина изображения внутри карточки */
+    height: auto; /* Автоматическая высота для сохранения соотношения сторон */
+    max-height: 100px; /* Максимальная высота изображения */
+    object-fit: cover; /* Изображение заполняет контейнер и обрезается, если не вписывается */
+}
+
+.card-title {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.card-description {
+    font-size: 14px;
+    color: #555;
+}
+
+
+/* display */
+details {
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+details summary {
+    padding: 10px;
+    background-color: #ddd;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+details p {
+    margin: 0;
+    padding: 10px;
+}
+
+/* contacts */
+.contact-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact {
+    margin: 10px 0;
+}
+
+.contact img {
+    border-radius: 50%;
+    max-width: 100px;
+    height: auto;
+    margin-right: 10px; /* Добавлено для отступа между изображением и текстом */
+}
+
+.contact h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+
+/* review */
+.reviews ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.review {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+.review p {
+    font-size: 1rem;
+    margin: 0;
+}
+

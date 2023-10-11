@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+
+{% block title %}{{ object.title }}{% endblock title %}
+
+{% block header %}{{ object.title }}{% endblock header %}
+
+{% block main %}
+<div class="container">
+    <figure class="">
+        <img style="max-width: 900px; object-fit: cover;" src="{{ object.image.url }}" alt="{{ object.title }}" class="ifigure-img img-fluid rounded mx-auto d-block">
+    </figure>
+    <small>{{ object.date }}</small>
+    <p>{{ object.text }}</p>
+</div>
+{% endblock main %}

@@ -1,0 +1,15 @@
+{% extends "app/base.html" %}
+
+{% block title %}Авторизация{% endblock title %}
+
+{% block header %}Авторизация{% endblock header %}
+
+{% block main %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="button" value="Авторизация">
+</form>
+<small>Еще не имеете аккаунта? <a href="/register/">Регистрация</a></small>
+
+{% endblock main %}

@@ -1,0 +1,35 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block title %}Список заказов{% endblock title %}
+
+{% block header %}Список заказов{% endblock header %}
+
+{% block main %}
+{% if object_list %}
+<table class="table">
+    <thead>
+        <th scope="col">Клиент</th>
+        <th scope="col">Сумма заказа</th>
+        <th scope="col">Дата добавления</th>
+        <th></th>
+    </thead>
+        {% for order in object_list %}
+        <tr>
+            <td>{{ order.client }}</td>
+            <td>{{ order.total_price }}</td>
+            <td>{{ order.created_at }}</td>
+            <td>
+                <a class="button" href="{% url 'order-detail' order.id %}">Детали</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% else %}
+    <small>Список заказов пуст</small>
+    {% endif %}
+    <br>
+    <br>
+{% endblock main %}

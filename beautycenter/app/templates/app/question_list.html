@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+
+{% block title %} Словарь терминов и понятий {% endblock title %}
+
+{% block header %}Список часто задаваемых вопросов{% endblock header %}
+
+{% block main %}
+{% for question in object_list %}
+<details class="styled-details">
+    <summary>Добавлено - {{question.date}} | {{ question.question }}</summary>
+    {{ question.answer }}
+  </details>
+  <hr>
+{% endfor %}
+{% endblock main %}

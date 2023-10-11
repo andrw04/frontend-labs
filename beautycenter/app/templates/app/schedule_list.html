@@ -1,0 +1,41 @@
+{% extends "app/base.html" %}
+
+{% block title %}Расписание{% endblock title %}
+
+{% block header %}Расписание{% endblock header %}
+
+{% block main %}
+<div class="text-center">
+    {% if object_list %}
+<table class="table">
+    <thead>
+        <th scope="col">Время</th>
+        <th scope="col">Посещение</th>
+        <th scope="col"></th>
+    </thead>
+        {% for schedule_item in object_list %}
+        <tr>
+            <td>{{ schedule_item.date_and_time }}</td>
+            {% if schedule_item.is_available %}
+            <td>Не запланировано</td>
+            <td></td>
+            {% else %}
+            <td>Запланировано</td>
+            <td>
+                <a class="btn btn-primary" href="{% url 'appointment-detail' schedule_item.id %}">Детали</a>
+            </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% else %}
+    <small>В расписании нет записей</small>
+    <br>
+    {% endif %}
+    <br>
+    {% if request.user.is_authenticated and request.user.is_superuser %}
+        <a class="button" href="{% url 'create-schedule' %}">Дополнить расписание</a>
+    {% endif %}
+</div>
+{% endblock main %}

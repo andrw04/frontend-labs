@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Добавить отзыв{% endblock title %}
+
+{% block header %}Добавить отзыв{% endblock header %}
+
+{% block main %}
+<div class="container">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="button" value="Отправить">
+    </form>
+</div>
+{% endblock main %}

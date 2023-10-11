@@ -1,0 +1,43 @@
+{% extends "app/base.html" %}
+
+{% block title %}{% endblock title %}
+
+{% block header %}Детали заказа{% endblock header %}
+
+{% block main %}
+<h2>Доктор: </h2>
+<p>Фамилия: {{ object.doctor.last_name }}</p>
+<p>Имя: {{ object.doctor.first_name }}</p>
+<p>Отчество: {{ object.doctor.father_name }}</p>
+<h2>Клиент:</h2>
+<p>Фамилия: {{ object.order.client.first_name }}</p>
+<p>Имя: {{ object.order.client.last_name }}</p>
+<p>Отчество: {{ object.order.client.father_name }}</p>
+<p>Дата рождения: {{ object.order.client.birth_date }} </p>
+<p>Номер телефона: {{ object.order.client.phone }}</p>
+
+<h2>Заказ:</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Название услуги</th>
+            <th scope="col">Категория</th>
+            <th scope="col">Цена</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for service in object.order.services.all %}
+        <tr>
+            <td scope="row">{{ service.name }}</td>
+            <td>{{ service.category }}</td>
+            <td>{{ service.price }} $</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td scope="row"></td>
+            <td></td>
+            <td>{{ total_price }} $</td>
+        </tr>
+    </tbody>
+    </table>
+{% endblock main %}

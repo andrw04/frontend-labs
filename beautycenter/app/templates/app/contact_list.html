@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Контакты{% endblock title %}
+
+{% block header %}Контакты{% endblock header %}
+
+{% block main %}
+<section class="contact-list" itemscope itemtype="http://schema.org/Person">
+    <ul>
+    {% for contact in object_list %}
+    <li class="contact">
+        <img src="{{ contact.photo.url }}" alt="" width="200" height="200">
+        <p><strong>Фамилия:</strong> {{ contact.last_name}}</p>
+        <p><strong itemprop="name">Имя:</strong> {{ contact.first_name}}</p>
+        <p><strong>Отчество:</strong> {{ contact.father_name }}</p>
+        <p><strong itemprop="jobTitle">Должность:</strong> {{ contact.job_title }}</p>
+        <p><strong itemprop="telephone">Телефон:</strong> {{ contact.phone }}</p>
+        <p><strong>Почта:</strong> {{ contact.email }}</p>
+        <hr>
+    </li>
+    {% endfor %}
+    </ul>
+</section>
+{% endblock main %}

@@ -1,0 +1,69 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block title %}Список услуг{% endblock title %}
+
+{% block header %}Список услуг{% endblock header %}
+
+{% block main %}
+<form method="get">
+    <input type="text" name="search" placeholder="Поиск" class="form-control">
+    <br>
+    <label for="sorting">Упорядочить:</label>
+    <select id="sorting" name="sorting" class="form-control">
+        <option value="name">По имени</option>
+        <option value="asc">По возрастанию цены</option>
+        <option value="desc">По убыванию цены</option>
+    </select>
+    <br>
+    <button type="submit" class="button">Применить</button>
+</form>
+
+{% if object_list %}
+<br>
+<table class="table">
+    <thead>
+        <th scope="col">Наименование услуги</th>
+        <th scope="col">Описание услуги</th>
+        <th scope="col">Категория услуг</th>
+        <th scope="col">Цена</th>
+        <th scope="col"></th>
+        {% if request.user.is_authenticated and request.user.is_superuser %}
+        <th scope="col"></th>
+        {% endif %}
+    </thead>
+        {% for service in object_list %}
+        <tr>
+            <td>{{ service.name }}</td>
+            <td>{{ service.description }}</td>
+            <td>{{ service.category.name }}</td>
+            <td>{{ service.price }} $</td>
+            {% if request.user.is_authenticated and request.user.is_superuser %}
+            <td>
+                <a class="button" href="{% url 'update-service' service.id %}">Изменить</a>
+            </td>
+            <td>
+                <a class="button" href="{% url 'delete-service' service.id %}">Удалить</a>
+            </td>
+            {% else %}
+            <td>
+                <a class="button" href="{% url 'add-to-order' service.id %}">Заказать</a>
+            </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% else %}
+    <small>Список услуг пуст</small>
+    {% endif %}
+    {% if request.user.is_authenticated and request.user.is_superuser %}
+        <div class="text-center">
+            <br>
+            <a class="button" href="{% url 'add-service' %}">Добавить услугу</a>
+        </div>
+    {% endif %}
+    <br>
+    <br>
+{% endblock main %}

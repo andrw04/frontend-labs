@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Услуга{% endblock title %}
+
+{% block header %}Услуга{% endblock header %}
+
+{% block main %}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="button">
+        Применить
+    </button>
+</form>
+{% endblock main %}

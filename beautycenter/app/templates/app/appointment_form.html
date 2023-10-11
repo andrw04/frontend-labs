@@ -1,0 +1,13 @@
+{% extends "app/base.html" %}
+
+{% block title %}Названичь посещение{% endblock title %}
+
+{% block header %}Назначить посещение{% endblock header %}
+
+{% block main %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="button" type="submit">
+</form>
+{% endblock main %}

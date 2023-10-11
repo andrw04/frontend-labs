@@ -1,0 +1,17 @@
+{% extends "app/base.html" %}
+
+{% block title %}Вакансии{% endblock title %}
+
+{% block header %}Список актуальных вакансий{% endblock header %}
+
+{% block main %}
+<hr>
+{% for vacancy in object_list %}
+    <h2>{{ vacancy.title }}</h2>
+    <p><strong>Обязанности:</strong>{{ vacancy.description }}</p>
+    <p><strong>Зарплата:</strong> {{ vacancy.salary }}$</p>
+    <p><strong>Местоположение:</strong>{{ vacancy.location }}</p>
+    <small><strong>Дата публикации:</strong> {{ vacancy.published_date}}</small>
+    <hr>
+{% endfor %}
+{% endblock main %}

@@ -1,0 +1,47 @@
+{% extends "app/base.html" %}
+
+{% block title %}Заказ{% endblock title %}
+
+{% block header %}Заказ{% endblock header %}
+
+{% block main %}
+{% if services %}
+
+<table class="table">
+<thead>
+    <tr>
+        <th scope="col">Название услуги</th>
+        <th scope="col">Категория</th>
+        <th scope="col">Цена</th>
+        <th></th>
+    </tr>
+</thead>
+<tbody>
+    {% for service in services %}
+    <tr>
+        <td scope="row">{{ service.name }}</td>
+        <td>{{ service.category }}</td>
+        <td>{{ service.price }} $</td>
+        <td>
+            <a class="button" href="{% url 'delete-from-order' service.id %}">
+                Удалить
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td scope="row"></td>
+        <td></td>
+        <td>{{ total_price }} $</td>
+        <td></td>
+    </tr>
+</tbody>
+</table>
+<br>
+<a class="button" href="{% url 'create-order' %}">
+    Заказать услуги
+</a>
+{% else %}
+<small>Список услуг пуст</small>
+{% endif %}
+{% endblock main %}

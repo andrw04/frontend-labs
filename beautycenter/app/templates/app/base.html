@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="author" content="Andrei Sivy" />
+        <meta
+            name="description"
+            content="Клиника предоставляет полный спектр косметологических процедур. Гарантия результата. Наши врачи только высшей и первой категории."
+            />
+        <link rel="shortcut icon" href="{% static 'app/images/logo.png' %}" type="image/x-icon"/>
+        <link rel="stylesheet" href="{% static 'app/css/style.css' %}" type="text/css"/>
+
+        <title>
+            Косметологический центр | {% block title %}{% endblock title %}
+        </title>
+    </head>
+
+    <body>
+        <!-- Список страниц (навигация) -->
+            <nav class="header">
+                <ul>
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="/about">О компании</a></li>
+                    <li><a href="/news">Новости</a></li>
+                    <li><a href="/category">Услуги</a></li>
+                    <li><a href="/faq">Словарь терминов и понятий</a></li>
+                    <li><a href="/vacancy">Вакансии</a></li>
+                    <li><a href="/review">Отзывы</a></li>
+                    <li><a href="/promo">Промокоды и купоны</a></li>
+                    <li><a href="/contacts">Контакты</a></li>
+                    <li><a href="/privacy-policy">Политика конфиденциальности</a></li>
+                    {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'schedule' %}">Расписание</a></li>
+                    {% if request.user.is_superuser %}
+                    <li><a href="{% url 'order-list' %}">Заказы</a></li>
+                    {% endif %}
+                    <li><a href="/logout/">{{request.user.first_name }}, Logout</a></li>
+                    {% else %}
+                    <li><a href="/login">Авторизация</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+
+            <header>
+                <div class="banner">
+                    {% comment %} <img src="{% static 'app/images/banner.png' %}" alt="баннер" width="100%" /> {% endcomment %}
+                    <p>Косметологический центр MEDESTET</p>
+                </div>
+                <h1></h1>
+            </header>
+
+            <main>
+                <div class="container">
+                    <h1>{% block header %}{% endblock header%}</h1>
+                    {% block main %}{% endblock main %}
+                </div>
+            </main>
+
+        <!--подвал-->
+        <footer>
+            <p>&copy; 2023 Medestet</p>
+        </footer>
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+</html>
